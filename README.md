@@ -118,9 +118,3 @@ npm start
 ## 📄 License
 
 MIT License © 2025 [Jesse Auta]
-
----
-
-## 🌟 Star the Repo
-
-If you find this useful, don’t forget to ⭐ the repo and share it with others!
