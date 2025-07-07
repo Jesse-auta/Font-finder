@@ -14,7 +14,6 @@ Font Finder is a full-stack web app that helps designers and developers identify
 - 🔍 Matches font name using fuzzy logic (RapidFuzz)
 - 🔡 Live font preview in matched font style
 - 📥 One-click download of Google Fonts
-- 🔁 Top 3 closest font matches
 - 🗂 Caches fonts locally for speed
 - 🌍 Built with React (frontend) + Flask (backend)
 
