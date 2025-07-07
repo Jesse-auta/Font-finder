@@ -4,9 +4,11 @@ from rapidfuzz import process
 from PIL import Image
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-API_KEY = "AIzaSyBnCSWfPHtLHKX7G6xVXkcPDc_XkatWdpg"
 
+API_KEY = os.getenv("API_KEY")
 CACHE_FILE = "fonts_cache.json"
 
 def fetch_google_fonts():
@@ -16,7 +18,7 @@ def fetch_google_fonts():
             cached = json.load(f)
             return cached["fonts"], cached["font_links"]
 
-    url = f"https://www.googleapis.com/webfonts/v1/webfonts?key={API_KEY}"
+    url = os.getenv("API_ROUTE")
     res = requests.get(url)
 
     if res.status_code != 200:
