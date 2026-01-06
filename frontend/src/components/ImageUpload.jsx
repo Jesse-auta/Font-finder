@@ -19,7 +19,7 @@ export default function FontIdentifier() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/identify-font", {
+      const res = await fetch("https://font-finder-s6kd.onrender.com/", {
         method: "POST",
         body: formData,
       });
