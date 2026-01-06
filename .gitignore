@@ -1,2 +1,14 @@
-# secrets
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# Others
 *.env
+fonts_cache.json
+.DS_Store

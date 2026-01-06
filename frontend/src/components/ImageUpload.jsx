@@ -39,7 +39,7 @@ export default function FontIdentifier() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>🎯 Font Finder</h1>
+      <h1 style={styles.title}>findrr</h1>
       <p style={styles.subtitle}>Identify fonts from screenshots or photos</p>
 
       {/* Hidden Inputs */}
@@ -62,15 +62,15 @@ export default function FontIdentifier() {
       {/* Upload Buttons */}
       <div style={styles.buttonGroup}>
         <button onClick={() => fileInputRef.current.click()} style={styles.button}>
-          🗂 Upload from Files
+          Upload from Files
         </button>
         <button onClick={() => cameraInputRef.current.click()} style={styles.button}>
-          📷 Use Camera
+          Use Camera
         </button>
       </div>
       {fileName && (
         <p style={{ marginTop: "0.5rem", fontSize: "0.95rem", color: "#666" }}>
-          📎 Selected: <strong>{fileName}</strong>
+          Selected: <strong>{fileName}</strong>
         </p>
       )}
 
@@ -95,9 +95,9 @@ export default function FontIdentifier() {
             <p style={{ color: "red" }}>{result.error}</p>
           ) : (
             <>
-              <p><strong>📖 OCR Text:</strong> {result.ocr_text}</p>
-              <p><strong>🔤 Matched Font:</strong> {result.matched_font}</p>
-              <p><strong>🎯 Confidence:</strong> {result.confidence.toFixed(1)}%</p>
+              <p><strong>OCR Text:</strong> {result.ocr_text}</p>
+              <p><strong>Matched Font:</strong> {result.matched_font}</p>
+              <p><strong>Confidence:</strong> {result.confidence.toFixed(1)}%</p>
 
               {/* Load and use the font */}
               <link
@@ -122,7 +122,7 @@ export default function FontIdentifier() {
                 rel="noopener noreferrer"
                 style={styles.link}
               >
-                ⬇️ Download Font
+                ⬇ Download Font
               </a>
             </>
           )}
