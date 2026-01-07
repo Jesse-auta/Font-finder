@@ -1,6 +1,6 @@
 import pytesseract
 from PIL import Image
-from rapidfuzz import process
+
 
 def extract_text(image_path):
     pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
