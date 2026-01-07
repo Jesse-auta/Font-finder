@@ -1,25 +1,36 @@
-# Use a lightweight Python 3.11 image
+# Use official Python base image
 FROM python:3.11-slim
 
-# Install system dependencies, including Tesseract OCR
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    POETRY_VERSION=1.6.1
+
+# Set working directory
+WORKDIR /backend
+
+# Install system dependencies
 RUN apt-get update && \
-    apt-get install -y tesseract-ocr libtesseract-dev libleptonica-dev pkg-config \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends \
+        tesseract-ocr \
+        libtesseract-dev \
+        build-essential \
+        wget \
+        && rm -rf /var/lib/apt/lists/*
 
-# Set working directory inside container
-WORKDIR /app
-
-# Copy Python dependencies first for caching
+# Copy requirements
 COPY requirements.txt .
 
 # Install Python dependencies
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir requests rapidfuzz
 
-# Copy the rest of your application code
+# Copy the entire project
 COPY . .
 
-# Expose port (Render default for web services is 10000)
-EXPOSE 10000
+# Expose port (Render uses 10000+ internally, but Flask default is 5000)
+EXPOSE 5000
 
-# Gunicorn command to run your app
-CMD ["gunicorn", "your_app.wsgi:application", "--bind", "0.0.0.0:10000"]
+# Command to run your app
+# Replace 'app:app' if your Flask app object has a different name or file
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
