@@ -1,6 +1,5 @@
 import pytesseract
 from PIL import Image
-import requests
 from rapidfuzz import process
 
 def extract_text(image_path):
