@@ -25,7 +25,7 @@ export default function FontIdentifier() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/identify-font", formData, {
+      const res = await axios.post("https://font-finder-s6kd.onrender.com/identify-font", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResult(res.data);
